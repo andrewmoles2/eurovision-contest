@@ -21,11 +21,11 @@ To load data, you can use the below code snippets.
 For R:
 
 ```{r}
-# load using base R read.csv
-eurovision <- read.csv("https://raw.githubusercontent.com/andrewmoles2/eurovision-contest/main/data/eurovision_data.csv")
-
-# load using reader
+# option 1 - load using readr
 eurovision <- readr::read_csv("https://raw.githubusercontent.com/andrewmoles2/eurovision-contest/main/data/eurovision_data.csv")
+
+# option 2 - load using base R read.csv
+eurovision <- read.csv("https://raw.githubusercontent.com/andrewmoles2/eurovision-contest/main/data/eurovision_data.csv")
 ``` 
 
 For Python:
