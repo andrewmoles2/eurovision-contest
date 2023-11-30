@@ -1,8 +1,8 @@
 # Eurovision Song Contest &nbsp; :microphone:
 
-The following project uses data from the [Eurovision Song Contest site](https://eurovision.tv/); which is pulled from the [Eurovision archives page](https://eurovision.tv/history). Data was scraped using R and packages including **rvest**. The resulting dataset represents information for all contestants for each year and by round (e.g. semi final, final). It is important to note that changes have occured to the scoring system through different points in time, e.g. semi final rounds were not introduced until 2005. 
+The following project uses data from the [Eurovision Song Contest site](https://eurovision.tv/); which is pulled from the [Eurovision archives page](https://eurovision.tv/history). Data was scraped using R and packages including **rvest**. The resulting dataset represents information for all contestants for each year and by round (e.g. semi final, final). It is important to note that changes have occurred to the scoring system through different points in time, e.g. semi final rounds were not introduced until 2005. 
 
-Inspiration for project is from [Tanya Shapiro](https://github.com/tashapiro) and her [eurovision contest repo](https://github.com/tashapiro/eurovision-contest). Sadly, Eurovision changed their website structure hence the project to update this great resource. 
+Inspiration for the project is from [Tanya Shapiro](https://github.com/tashapiro) and her [eurovision contest repo](https://github.com/tashapiro/eurovision-contest). Sadly, Eurovision changed its website structure hence the project to update this great resource. 
 
 ## About
 
@@ -14,7 +14,27 @@ Excerpt taken from [Wikipedia](https://en.wikipedia.org/wiki/Eurovision_Song_Con
 
 ## Data Dictionary 
 
-Data is available here
+Data is available [here](https://github.com/andrewmoles2/eurovision-contest/blob/main/data/eurovision_data.csv). 
+
+To load data, you can use the below code snippets. 
+
+For R:
+
+```{r}
+# load using base R read.csv
+eurovision <- read.csv("https://raw.githubusercontent.com/andrewmoles2/eurovision-contest/main/data/eurovision_data.csv")
+
+# load using reader
+eurovision <- readr::read_csv("https://raw.githubusercontent.com/andrewmoles2/eurovision-contest/main/data/eurovision_data.csv")
+``` 
+
+For Python:
+
+```{python}
+import pandas as pd
+
+eurovision = pd.read_csv("https://github.com/andrewmoles2/eurovision-contest/blob/main/data/eurovision_data.csv")
+```
 
 Short summary of fields in the dataset:
 
