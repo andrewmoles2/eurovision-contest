@@ -25,7 +25,8 @@ for (i in 0:5) {
 
 # make the full url
 event_links <- paste0("https://eurovision.tv", event_links)
-event_links
+# madrid-1969 appears 4 times due to 4 winners - just keep one
+event_links <- unique(event_links)
 
 # Extract host country ----
 country <- c()
@@ -77,6 +78,15 @@ for (i in 0:4) {
   events <- rbind(events, temp_df)
 }
 
+# remove extra madrid-1969 cases
+events <- events %>%
+  select(Year:Points) %>%
+  group_by(Year) %>% 
+  filter(Year == min(Year)) %>% 
+  slice(1) %>% # takes the first occurrence if there is a tie
+  ungroup() %>%
+  arrange(desc(Year))
+
 # put into a data frame for easier use later
 events <- events %>%
   select(Year:Winners) %>%
@@ -84,7 +94,6 @@ events <- events %>%
          event_link = event_links,
          event = str_extract(event_link, "(?<=/)[^/]*(?<=\\d)") %>% gsub("-", " ", .)) %>%
   select(Year, City, host_country, everything())
-
 
 # semi finals ----
 # 2004 - 2008 one semi final
@@ -209,7 +218,7 @@ all_finals <- rbind(df_final, df_gfinal)
 # combine semifinals and finals into one dataset ----
 df_rankings <- rbind(all_semis, all_finals)
 
-# join dataset to events ----
+# join dataset to events ----
 data <- left_join(df_rankings, events, by = "Year", relationship = "many-to-many") %>%
   janitor::clean_names() %>%
   rename(host_city = city,
