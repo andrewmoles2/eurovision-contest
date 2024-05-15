@@ -55,3 +55,14 @@ Short summary of fields in the dataset:
 | winner              | Applicable to final & semi-final rounds (TRUE or FALSE)      |
 | event_link          | Link to event                                        |
 
+## Example visualisations made with the data
+
+These visualisations were made with R and the `ggplot2` package. The code used to produce them can be found in the [code folder](https://github.com/andrewmoles2/eurovision-contest/blob/main/code/eurovision_viz.R) in the `eurovision_viz.R` file. 
+
+![](visuals/eurovision_winners.png)
+
+![](visuals/eurovision_yearly_ranking.png)
+
+![](visuals/eurovision_maps.png)
+
+
